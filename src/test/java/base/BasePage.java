@@ -29,6 +29,10 @@ public abstract class BasePage {
         element.sendKeys(text);
     }
 
+    protected void waitForUrlContains (String part) {
+        wait.until(ExpectedConditions.urlContains(part));
+    }
+
     protected String getText(By locator) {
         return wait.until(ExpectedConditions.visibilityOfElementLocated(locator)).getText();
     }
