@@ -37,7 +37,7 @@ public class HomeNavigationTest extends BaseTest {
         JobsPage jobsPage = new HomePage(driver)
                 .open()
                 .openJobs();
-        Assert.assertEquals(jobsPage.getHeadingText(), "QA Job Board",
+        Assert.assertEquals(jobsPage.getHeadingText(), "QA Jb Board",
                 "Назва не спiвпала");
         Assert.assertTrue(driver.getCurrentUrl().contains("/jobs"),
                 "Должна открыться страница компаний");
