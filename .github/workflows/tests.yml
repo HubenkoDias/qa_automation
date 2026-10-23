@@ -22,8 +22,15 @@ jobs:
       - name: Launch Tests
         run: mvn -B test -Dheadless=true
         env:
-          HHUB_QA_EMAIL: ${{ secrets.HHUB_QA_EMAIL }}
-          HHUB_QA_PASSWORD: ${{ secrets.HHUB_QA_PASSWORD }}
+            HHUB_QA_EMAIL: ${{ secrets.HHUB_QA_EMAIL }}
+            HHUB_QA_PASSWORD: ${{ secrets.HHUB_QA_PASSWORD }}
+            HHUB_COMPANY_EMAIL: ${{ secrets.HHUB_COMPANY_EMAIL }}
+            HHUB_COMPANY_PASSWORD: ${{ secrets.HHUB_COMPANY_PASSWORD }}
+            HHUB_ADMIN_EMAIL: ${{ secrets.HHUB_ADMIN_EMAIL }}
+            HHUB_ADMIN_PASSWORD: ${{ secrets.HHUB_ADMIN_PASSWORD }}
+            HHUB_WRONG_EMAIL: ${{ secrets.HHUB_WRONG_EMAIL }}
+            HHUB_WRONG_PASWWORD: ${{ secrets.HHUB_WRONG_PASWWORD }}
+
 
       - name: Save report
         if: always()
