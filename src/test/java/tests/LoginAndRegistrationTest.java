@@ -4,12 +4,12 @@ import base.BaseTest;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.DashboardPage;
-import pages.HomePage;
+import pages.ForgotPasswordPage;
 import pages.LoginPage;
-import utils.TestConfig;
+import pages.RegisterPage;
 import utils.TestUser;
 
-public class LoginTest extends BaseTest {
+public class LoginAndRegistrationTest extends BaseTest {
     @Test
     public void qaSpecialistCanLogin() {
         DashboardPage dashboardPage = new LoginPage(driver)
@@ -36,4 +36,25 @@ public class LoginTest extends BaseTest {
         Assert.assertEquals(loginPage.getHeadingText(), "Welcome back",
                 "An unauthorized user should be redirected to the login page");
     }
+    @Test
+    public void signUpLinkOpensRegistrationPage() {
+        RegisterPage registerPage = new LoginPage(driver)
+                .open()
+                .openSignUp();
+
+        Assert.assertEquals(registerPage.getHeadingText(), "Create account",
+                "User should be redirected to the registration page");
+    }
+    @Test
+    public void forgotPasswordLinkOpensForgotPasswordPage() {
+        ForgotPasswordPage forgotPasswordPage = new LoginPage(driver)
+                .open()
+                .openForgotPassword();
+
+        Assert.assertEquals(forgotPasswordPage.getHeadingText(), "Forgot password?",
+                "User should be redirected to the \"Forgot password\" page");
+    }
 }
+
+
+

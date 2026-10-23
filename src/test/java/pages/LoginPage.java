@@ -14,6 +14,8 @@ public class LoginPage extends BasePage {
     private static final By HEADING = By.tagName("h1");
     private static final By ERROR_MESSAGE =
             By.cssSelector("form div[class*='bg-red-500'][class*='text-red-400']");
+    private static final By SIGN_UP_LINK = By.cssSelector("a[href*='/auth/register']");
+    private static final By FORGOT_PASSWORD_LINK = By.cssSelector("a[href*='/auth/forgot-password']");
 
     public LoginPage(WebDriver driver) {
         super(driver);
@@ -47,5 +49,15 @@ public class LoginPage extends BasePage {
         type(EMAIL_FIELD, user.email());
         type(PASSWORD_FIELD, user.password());
         click(LOGIN_BUTTON);
+    }
+    public RegisterPage openSignUp() {
+        click(SIGN_UP_LINK);
+        waitForUrlContains("/auth/register");
+        return new RegisterPage(driver);
+    }
+    public ForgotPasswordPage openForgotPassword() {
+        click(FORGOT_PASSWORD_LINK);
+        waitForUrlContains("/auth/forgot-password");
+        return new ForgotPasswordPage(driver);
     }
 }
