@@ -17,9 +17,9 @@ public class HomeNavigationTest extends BaseTest {
                 .openSpecialists();
 
         Assert.assertEquals(specialistsPage.getHeadingText(), "QA Specialists",
-                "Назва не спiвпала");
+                "Naming is not right");
         Assert.assertTrue(driver.getCurrentUrl().contains("/browse/specialists"),
-                "Должна открыться страница компаний");
+                "Specialists page should be opened");
     }
 
     @Test
@@ -28,18 +28,18 @@ public class HomeNavigationTest extends BaseTest {
                 .open()
                 .openCompanies();
         Assert.assertEquals(companiesPage.getHeadingText(), "Companies Hiring",
-                "Назва не спiвпала");
+                "Naming is not right");
         Assert.assertTrue(driver.getCurrentUrl().contains("/browse/companies"),
-                "Должна открыться страница компаний");
+                "Companies page should be opened");
     }
     @Test
     public void JobsPageOpensJobsPage () {
         JobsPage jobsPage = new HomePage(driver)
                 .open()
                 .openJobs();
-        Assert.assertEquals(jobsPage.getHeadingText(), "QA Jb Board",
-                "Назва не спiвпала");
+        Assert.assertEquals(jobsPage.getHeadingText(), "QA Job Board",
+                "Naming is not right");
         Assert.assertTrue(driver.getCurrentUrl().contains("/jobs"),
-                "Должна открыться страница компаний");
+                "Jobs page should be opened");
     }
 }

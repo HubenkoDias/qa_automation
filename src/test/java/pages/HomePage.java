@@ -3,9 +3,9 @@ package pages;
 import base.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import utils.TestConfig;
 
 public class HomePage extends BasePage {
-    private static final String URL = "https://hhub-mdwm.vercel.app";
     private static final By SPECIALISTS_LINK = By.cssSelector("a[href='/browse/specialists']");
     private static final By COMPANIES_LINK = By.cssSelector("a[href='/browse/companies']");
     private static final By JOBS_LINK = By.cssSelector("a[href='/jobs']");
@@ -15,7 +15,7 @@ public class HomePage extends BasePage {
     }
 
     public HomePage open() {
-        driver.get(URL);
+        driver.get(TestConfig.BASE_URL);
         return this;
     }
 
