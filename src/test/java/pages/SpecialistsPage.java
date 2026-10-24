@@ -7,6 +7,7 @@ import org.openqa.selenium.WebDriver;
 public class SpecialistsPage extends BasePage {
 
     private static final By SPECIALISTS_HEADING = By.tagName("h1");
+    private static final By SPECIALISTS_HEADER = By.cssSelector("a[href*='/browse/specialists']");
 
     public SpecialistsPage(WebDriver driver) {
         super(driver);
@@ -15,5 +16,4 @@ public class SpecialistsPage extends BasePage {
     public String getHeadingText() {
         return getText(SPECIALISTS_HEADING);
     }
-
 }
